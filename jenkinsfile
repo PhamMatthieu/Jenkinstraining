@@ -13,26 +13,12 @@ pipeline{
             }
             
         }
-    }
-
-    stages{
+    
         stage("Checkout from SCM"){
             steps{
-                cleanWs()
+                git branch 'main' url: 'https://github.com/dmancloud/complete-prodcution-e2e-pipeline.git'
             }
             
-        }
-    }
-
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
         }
     }
 }
